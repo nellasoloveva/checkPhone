@@ -1,0 +1,867 @@
+@font-face {
+	font-family: 'Font'; 
+	src: url(../fonts/Brusnika-normal_version_02.otf); 
+}
+
+@media screen and (min-width: 1170px){
+
+.box{
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+html, body {
+    height: 100%;
+}
+  
+body {
+    background: radial-gradient(rgb(136, 25, 25), #97AAbd) no-repeat;
+    overflow: hidden;
+    margin: 0px;
+}
+
+
+.floating-text {
+    position: absolute;
+    width: 700px; /* Ширина блока текста */
+    animation: float 5s ease-in-out infinite; /* Анимация */
+    text-align: center;
+    font-size: 24px;
+    color: white; /* Цвет текста */
+    font-family: Font;
+    font-size: 30px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px); /* Поднимаем текст вверх */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.startGame {
+	display: inline-block;	
+	box-sizing: border-box;
+	padding: 0 10px;
+	margin: 0 15px 15px 0;
+	outline: none;
+	border: none;  
+	border-radius: 6px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 17px;
+	font-weight: 600;
+	text-decoration: none;
+	color: rgb(136, 25, 25);
+	background-color: #c96567;
+	cursor: pointer;
+	user-select: none;
+	appearance: none;
+	touch-action: manipulation;
+    font-family: Font;
+    font-size: 30px;
+    margin-left: 10px;
+}
+.startGame:focus-visible {
+	box-shadow: 0 0 0 2px #666;
+}
+.startGame:hover {
+	background-color: #9e5a63;
+}
+.startGame:active {
+	transform: scale(0.96);
+}
+
+.target {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+}
+.score {
+    font-size: 20px;
+    display: flex;
+    justify-content: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-family: Font;
+    font-size: 30px;
+    color: #644e5b;
+    font-weight: 900;
+}
+.mouse{
+    width: 30px;
+    height: 30px;
+}
+.cat{
+    height: 100px;
+    width: 100px;
+}
+.start{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 400px;
+    
+}
+.al{
+    display: none;
+}
+.over{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.contentNone{
+    display: none;
+}
+.content{
+    color: rgb(20, 20, 20);
+    background-color: #644e5b;
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Font;
+    font-size: 40px;
+    font-weight: 900;
+    background-image: url(../img/line_kpecusz2uoqm.svg);
+}
+.text{
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.button {
+	display: inline-block;	
+	box-sizing: border-box;
+	padding: 0 10px;
+	margin: 50px 15px 15px 0;
+	outline: none;
+	border: none;  
+	border-radius: 6px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 17px;
+	font-weight: 600;
+	text-decoration: none;
+	color: rgb(136, 25, 25);
+	background-color: #c96567;
+	cursor: pointer;
+	user-select: none;
+	appearance: none;
+	touch-action: manipulation;
+    font-family: Font;
+    font-size: 30px;
+    margin-top: 50px;
+}
+.button:focus-visible {
+	box-shadow: 0 0 0 2px #666;
+}
+.button:hover {
+	background-color: #9e5a63;
+}
+.button:active {
+	transform: scale(0.96);
+}
+.n{
+    display: none;
+}
+@keyframes firework {
+    0% { 
+      transform: translate(-50%, 60vh);
+      width: 0.5vmin;
+      opacity: 1;
+    }
+    50% { 
+      width: 0.5vmin;
+      opacity: 1;
+    }
+    100% { 
+      width: 45vmin; 
+      opacity: 0; 
+    }
+  }
+  
+  .firework,
+  .firework::before,
+  .firework::after {
+    --top: 60vh;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    width: 0.5vmin;
+    aspect-ratio: 1;
+    background:
+      /* random backgrounds */
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 50% 00%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 00% 50%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 50% 99%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 99% 50%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 80% 90%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 95% 90%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 10% 60%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 31% 80%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 80% 10%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 90% 23%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 45% 20%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 13% 24%
+      ;
+    background-size: 0.5vmin 0.5vmin;
+    background-repeat: no-repeat;
+    animation: firework 2s infinite;
+  }
+  
+  .firework::before {
+    transform: translate(-50%, -50%) rotate(25deg) !important; 
+  }
+  
+  .firework::after {
+    transform: translate(-50%, -50%) rotate(-37deg) !important;
+  }
+
+
+
+
+  @keyframes firework3 {
+    0% { 
+      transform: translate(-50%, 60vh);
+      width: 0.5vmin;
+      opacity: 1;
+    }
+    50% { 
+      width: 0.5vmin;
+      opacity: 1;
+    }
+    100% { 
+      width: 45vmin; 
+      opacity: 0; 
+    }
+  }
+  
+  .firework3,
+  .firework3::before,
+  .firework3::after {
+    --top: 60vh;
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(-50%, -50%);
+    width: 0.5vmin;
+    aspect-ratio: 1;
+    background:
+      /* random backgrounds */
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 50% 00%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 00% 50%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 50% 99%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 99% 50%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 80% 90%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 95% 90%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 10% 60%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 31% 80%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 80% 10%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 90% 23%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 45% 20%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 13% 24%
+      ;
+    background-size: 0.5vmin 0.5vmin;
+    background-repeat: no-repeat;
+    animation: firework 2s infinite;
+  }
+  
+  .firework3::before {
+    transform: translate(-50%, -50%) rotate(25deg) !important; 
+  }
+  
+  .firework3::after {
+    transform: translate(-50%, -50%) rotate(-37deg) !important;
+  }
+
+
+
+  @keyframes firework1 {
+    0% { 
+      transform: translate(-50%, 60vh);
+      width: 0.5vmin;
+      opacity: 1;
+    }
+    50% { 
+      width: 0.5vmin;
+      opacity: 1;
+    }
+    100% { 
+      width: 45vmin; 
+      opacity: 0; 
+    }
+  }
+  
+  .firework1,
+  .firework1::before,
+  .firework1::after {
+    --top: 60vh;
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    width: 0.5vmin;
+    aspect-ratio: 1;
+    background:
+      /* random backgrounds */
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 50% 00%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 00% 50%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 50% 99%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 99% 50%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 80% 90%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 95% 90%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 10% 60%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 31% 80%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 80% 10%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 90% 23%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 45% 20%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 13% 24%
+      ;
+    background-size: 0.5vmin 0.5vmin;
+    background-repeat: no-repeat;
+    animation: firework 2s infinite;
+  }
+  
+  .firework1::before {
+    transform: translate(-50%, -50%) rotate(25deg) !important; 
+  }
+  
+  .firework1::after {
+    transform: translate(-50%, -50%) rotate(-37deg) !important;
+  }
+
+
+  @keyframes firework2 {
+    0% { 
+      transform: translate(-50%, 60vh);
+      width: 0.5vmin;
+      opacity: 1;
+    }
+    50% { 
+      width: 0.5vmin;
+      opacity: 1;
+    }
+    100% { 
+      width: 45vmin; 
+      opacity: 0; 
+    }
+  }
+  
+  .firework2,
+  .firework2::before,
+  .firework2::after {
+    --top: 60vh;
+    content: "";
+    position: absolute;
+    top: 20%;
+    right: 20%;
+    transform: translate(-50%, -50%);
+    width: 0.5vmin;
+    aspect-ratio: 1;
+    background:
+      /* random backgrounds */
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 50% 00%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 00% 50%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 50% 99%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 99% 50%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 80% 90%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 95% 90%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 10% 60%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 31% 80%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 80% 10%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 90% 23%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 45% 20%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 13% 24%
+      ;
+    background-size: 0.5vmin 0.5vmin;
+    background-repeat: no-repeat;
+    animation: firework 2s infinite;
+  }
+  
+  .firework2::before {
+    transform: translate(-50%, -50%) rotate(25deg) !important; 
+  }
+  
+  .firework2::after {
+    transform: translate(-50%, -50%) rotate(-37deg) !important;
+  }
+
+
+
+
+
+.iphone{
+  display: none;
+}
+
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1170px){
+  .box{
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+html, body {
+    height: 100%;
+}
+  
+body {
+    background: radial-gradient(rgb(136, 25, 25), #97AAbd) no-repeat;
+    overflow: hidden;
+    margin: 0px;
+}
+
+
+.floating-text {
+    position: absolute;
+    width: 300px; /* Ширина блока текста */
+    animation: float 5s ease-in-out infinite; /* Анимация */
+    text-align: center;
+    font-size: 24px;
+    color: white; /* Цвет текста */
+    font-family: Font;
+    font-size: 25px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px); /* Поднимаем текст вверх */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.startGame {
+	display: inline-block;	
+	box-sizing: border-box;
+	padding: 0 10px;
+	margin: 0 15px 15px 0;
+	outline: none;
+	border: none;  
+	border-radius: 6px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 17px;
+	font-weight: 600;
+	text-decoration: none;
+	color: rgb(136, 25, 25);
+	background-color: #c96567;
+	cursor: pointer;
+	user-select: none;
+	appearance: none;
+	touch-action: manipulation;
+    font-family: Font;
+    font-size: 25px;
+    margin-left: 10px;
+}
+.startGame:focus-visible {
+	box-shadow: 0 0 0 2px #666;
+}
+.startGame:hover {
+	background-color: #9e5a63;
+}
+.startGame:active {
+	transform: scale(0.96);
+}
+
+.target {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+}
+.score {
+    font-size: 20px;
+    display: flex;
+    justify-content: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-family: Font;
+    font-size: 30px;
+    color: #644e5b;
+    font-weight: 900;
+}
+.mouse{
+    width: 30px;
+    height: 30px;
+}
+.cat{
+    height: 100px;
+    width: 100px;
+}
+.start{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 400px;
+    
+}
+.al{
+    display: none;
+}
+.over{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.contentNone{
+    display: none;
+}
+.content{
+    color: rgb(20, 20, 20);
+    background-color: #644e5b;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Font;
+    font-size: 20px;
+    font-weight: 900;
+    background-image: url(../img/line_kpecusz2uoqm.svg);
+}
+.text{
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.button {
+	display: inline-block;	
+	box-sizing: border-box;
+	padding: 0 10px;
+	margin: 50px 15px 15px 0;
+	outline: none;
+	border: none;  
+	border-radius: 6px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 17px;
+	font-weight: 600;
+	text-decoration: none;
+	color: rgb(136, 25, 25);
+	background-color: #c96567;
+	cursor: pointer;
+	user-select: none;
+	appearance: none;
+	touch-action: manipulation;
+    font-family: Font;
+    font-size: 30px;
+    margin-top: 50px;
+}
+.button:focus-visible {
+	box-shadow: 0 0 0 2px #666;
+}
+.button:hover {
+	background-color: #9e5a63;
+}
+.button:active {
+	transform: scale(0.96);
+}
+.n{
+    display: none;
+}
+@keyframes firework {
+    0% { 
+      transform: translate(-50%, 60vh);
+      width: 0.5vmin;
+      opacity: 1;
+    }
+    50% { 
+      width: 0.5vmin;
+      opacity: 1;
+    }
+    100% { 
+      width: 45vmin; 
+      opacity: 0; 
+    }
+  }
+  
+  .firework,
+  .firework::before,
+  .firework::after {
+    --top: 60vh;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    width: 0.5vmin;
+    aspect-ratio: 1;
+    background:
+      /* random backgrounds */
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 50% 00%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 00% 50%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 50% 99%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 99% 50%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 80% 90%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 95% 90%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 10% 60%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 31% 80%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 80% 10%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 90% 23%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 45% 20%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 13% 24%
+      ;
+    background-size: 0.5vmin 0.5vmin;
+    background-repeat: no-repeat;
+    animation: firework 2s infinite;
+  }
+  
+  .firework::before {
+    transform: translate(-50%, -50%) rotate(25deg) !important; 
+  }
+  
+  .firework::after {
+    transform: translate(-50%, -50%) rotate(-37deg) !important;
+  }
+
+
+
+
+  @keyframes firework3 {
+    0% { 
+      transform: translate(-50%, 60vh);
+      width: 0.5vmin;
+      opacity: 1;
+    }
+    50% { 
+      width: 0.5vmin;
+      opacity: 1;
+    }
+    100% { 
+      width: 45vmin; 
+      opacity: 0; 
+    }
+  }
+  
+  .firework3,
+  .firework3::before,
+  .firework3::after {
+    --top: 60vh;
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(-50%, -50%);
+    width: 0.5vmin;
+    aspect-ratio: 1;
+    background:
+      /* random backgrounds */
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 50% 00%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 00% 50%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 50% 99%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 99% 50%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 80% 90%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 95% 90%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 10% 60%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 31% 80%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 80% 10%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 90% 23%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 45% 20%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 13% 24%
+      ;
+    background-size: 0.5vmin 0.5vmin;
+    background-repeat: no-repeat;
+    animation: firework 2s infinite;
+  }
+  
+  .firework3::before {
+    transform: translate(-50%, -50%) rotate(25deg) !important; 
+  }
+  
+  .firework3::after {
+    transform: translate(-50%, -50%) rotate(-37deg) !important;
+  }
+
+
+
+  @keyframes firework1 {
+    0% { 
+      transform: translate(-50%, 60vh);
+      width: 0.5vmin;
+      opacity: 1;
+    }
+    50% { 
+      width: 0.5vmin;
+      opacity: 1;
+    }
+    100% { 
+      width: 45vmin; 
+      opacity: 0; 
+    }
+  }
+  
+  .firework1,
+  .firework1::before,
+  .firework1::after {
+    --top: 60vh;
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    width: 0.5vmin;
+    aspect-ratio: 1;
+    background:
+      /* random backgrounds */
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 50% 00%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 00% 50%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 50% 99%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 99% 50%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 80% 90%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 95% 90%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 10% 60%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 31% 80%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 80% 10%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 90% 23%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 45% 20%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 13% 24%
+      ;
+    background-size: 0.5vmin 0.5vmin;
+    background-repeat: no-repeat;
+    animation: firework 2s infinite;
+  }
+  
+  .firework1::before {
+    transform: translate(-50%, -50%) rotate(25deg) !important; 
+  }
+  
+  .firework1::after {
+    transform: translate(-50%, -50%) rotate(-37deg) !important;
+  }
+
+
+  @keyframes firework2 {
+    0% { 
+      transform: translate(-50%, 60vh);
+      width: 0.5vmin;
+      opacity: 1;
+    }
+    50% { 
+      width: 0.5vmin;
+      opacity: 1;
+    }
+    100% { 
+      width: 45vmin; 
+      opacity: 0; 
+    }
+  }
+  
+  .firework2,
+  .firework2::before,
+  .firework2::after {
+    --top: 60vh;
+    content: "";
+    position: absolute;
+    top: 20%;
+    right: 20%;
+    transform: translate(-50%, -50%);
+    width: 0.5vmin;
+    aspect-ratio: 1;
+    background:
+      /* random backgrounds */
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 50% 00%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 00% 50%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 50% 99%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 99% 50%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 80% 90%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 95% 90%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 10% 60%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 31% 80%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 80% 10%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.2vmin, #0000 0) 90% 23%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.3vmin, #0000 0) 45% 20%,
+      radial-gradient(circle, rgb(136, 25, 25) 0.5vmin, #0000 0) 13% 24%
+      ;
+    background-size: 0.5vmin 0.5vmin;
+    background-repeat: no-repeat;
+    animation: firework 2s infinite;
+  }
+  
+  .firework2::before {
+    transform: translate(-50%, -50%) rotate(25deg) !important; 
+  }
+  
+  .firework2::after {
+    transform: translate(-50%, -50%) rotate(-37deg) !important;
+  }
+
+
+  .iphone{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    margin: 0px;
+  }
+
+.sverh{
+  transform: rotate(3.142rad);
+}
+.slevo{
+  transform: rotate(90deg);
+}
+.spravo{
+  transform: rotate(-0.25turn);
+}
+
+
+}
